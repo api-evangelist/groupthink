@@ -1,0 +1,25 @@
+generated: '2026-07-19'
+method: searched
+source: https://groupthink.com/docs/mcp_server/
+summary:
+  types: [http]
+  http_schemes: [bearer]
+  api_key_in: [header]
+  oauth2_flows: []
+schemes:
+  - name: bearerToken
+    type: http
+    scheme: bearer
+    description: >-
+      Groupthink API tokens are Bearer credentials minted in the app under
+      Settings -> API Tokens. A token is displayed only once at creation and can
+      be revoked immediately, which blocks all client access. Sent on the
+      Authorization request header as "Bearer <token>".
+    in: header
+    header_name: Authorization
+    token_management_url: https://app.groupthink.com/
+    sources: [docs/mcp_server]
+notes: >-
+  Derived from the published MCP server documentation (no OpenAPI securitySchemes
+  are published). Groupthink also supports a bring-your-own Anthropic API key for
+  meeting summaries, which is a per-user LLM credential, not an API auth scheme.
