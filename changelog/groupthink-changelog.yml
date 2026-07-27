@@ -1,0 +1,40 @@
+generated: '2026-07-19'
+method: searched
+source: https://groupthink.com/changelog/
+also: https://groupthink.com/releases/
+scheme: dated
+current_version: v1
+window: recent
+entries:
+  - date: '2026-07'
+    breaking: false
+    highlights:
+      - Multiple Outlook accounts — connect as many Outlook accounts as you have alongside Google ones; every calendar feeds one record.
+      - Multiple Google Calendar accounts — pick which calendars to watch per account and set notetaker auto-join calendar by calendar.
+      - Ask about a relationship, with citations — answers on a relationship page cite the meetings and saved facts they came from.
+  - date: '2026-05'
+    breaking: true
+    highlights:
+      - Assign speakers in transcripts — relabel "Mic Speaker 1" to a participant and update every line.
+      - MCP server for Claude Desktop and Cursor — connect any MCP-compatible AI assistant to your Groupthink relationships and upcoming meetings.
+      - 'Removed: Notion integration — the Notion connection driver was retired (usage effectively zero).'
+  - date: '2026-04'
+    breaking: false
+    highlights:
+      - Relationship intelligence launch — new positioning and an Intelligence Hub with a daily brief of what is coming up and who needs attention.
+      - One-click promotion of meeting intel to contact dossiers.
+      - Related-people suggestions in the post-meeting modal.
+      - Structured extraction on recaps — decisions, action items, and key intel extracted inline.
+      - Freeform note ingestion — paste notes from meetings Groupthink did not record.
+      - Bring-your-own Anthropic API key for summaries.
+      - Auto-join disabled by default for invited users.
+      - Fixed signin, signup, and login redirects.
+  - date: '2026-03'
+    breaking: false
+    highlights:
+      - 30-day free trial replaces the 5-meeting limit.
+      - Gifted recap emails — every attendee of a recorded meeting receives the recap automatically.
+notes: >-
+  Recent window captured from the public changelog. The changelog notes "older
+  history coming soon"; the May 2026 Notion removal is the only breaking change
+  in the window.

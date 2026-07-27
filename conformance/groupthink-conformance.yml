@@ -1,0 +1,26 @@
+generated: '2026-07-19'
+method: searched
+source: https://groupthink.com/docs/mcp_server/
+standards:
+  - id: mcp
+    name: Model Context Protocol
+    conforms: true
+    evidence: >-
+      Publishes a hosted, remote MCP server at https://api.groupthink.com/v1/mcp-server
+      (HTTP transport, JSON-RPC), documented for Claude Code, Claude Desktop, and Cursor.
+  - id: http-bearer-auth
+    name: RFC 6750 Bearer token
+    conforms: true
+    evidence: Authorization ""Bearer <token>"" credential on the MCP/API endpoint.
+  - id: oauth2
+    conforms: false
+    evidence: Auth is a static Bearer API token, not an OAuth2 authorization flow.
+  - id: oidc
+    conforms: false
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: No OpenAPI or error-format documentation is published.
+notes: >-
+  Asserted from the published MCP documentation. No security/compliance
+  certifications (SOC 2, ISO 27001, PCI, HIPAA, FedRAMP) are published, so no
+  Compliance pointer is emitted.

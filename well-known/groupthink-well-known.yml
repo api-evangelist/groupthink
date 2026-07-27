@@ -1,0 +1,25 @@
+generated: '2026-07-19'
+method: searched
+source: live probes of groupthink.com, app.groupthink.com, api.groupthink.com
+hosts:
+  - host: https://groupthink.com
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 404}
+      - {path: /.well-known/oauth-authorization-server, status: 404}
+      - {path: /.well-known/api-catalog, status: 404}
+      - {path: /.well-known/ai-plugin.json, status: 404}
+      - {path: /llms.txt, status: 404}
+  - host: https://api.groupthink.com
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 404}
+      - {path: /.well-known/oauth-authorization-server, status: 404}
+  - host: https://app.groupthink.com
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /llms.txt, status: 404}
+notes: >-
+  No /.well-known discovery documents, llms.txt, or ai-plugin.json are published
+  on any host. Absence recorded as valid data; no WellKnown/SecurityTxt scoring
+  pointer is emitted because nothing was found.

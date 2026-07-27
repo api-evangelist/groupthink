@@ -1,0 +1,45 @@
+generated: '2026-07-19'
+method: searched
+source: https://groupthink.com/docs/mcp_server/
+authentication:
+  style: bearer-token
+  detail: >-
+    Bearer API token on the Authorization header; see
+    authentication/groupthink-authentication.yml.
+idempotency:
+  supported: true
+  mechanism: operation-level
+  detail: >-
+    The save_notes MCP tool is documented as idempotent — persisting the same
+    meeting notes repeatedly does not create duplicates. Groupthink also
+    describes relationship writes with an upsert model (upsert_relationship_note,
+    one-record-per-person merging of multiple connected calendar accounts),
+    which is idempotent by key rather than via a client-supplied idempotency key.
+  key_header: null
+transport:
+  protocol: Model Context Protocol (JSON-RPC 2.0 over HTTP)
+  endpoint: https://api.groupthink.com/v1/mcp-server
+pagination:
+  style: cursor
+  detail: >-
+    get_transcript advances a per-user cursor to return only new transcript
+    lines since the last call. get_past_meetings is windowed by day count
+    (default 7, max 30). No generic offset/limit pagination is documented.
+versioning:
+  scheme: uri-path
+  current: v1
+  detail: The API and MCP server are served under the /v1 path on api.groupthink.com.
+limits:
+  detail: >-
+    Bounded operations rather than published rate limits: send_chat is capped at
+    2000 characters, speak is spend-capped, get_past_meetings is capped at 30
+    days. No numeric request-rate limit is published.
+cross_references:
+  authentication: authentication/groupthink-authentication.yml
+  changelog: changelog/groupthink-changelog.yml
+  lifecycle: lifecycle/groupthink-lifecycle.yml
+notes: >-
+  Derived from the published MCP tool documentation; Groupthink publishes no
+  OpenAPI spec or dedicated conventions page, so error-envelope, request-tracing,
+  and field-expansion semantics are not documented and are omitted rather than
+  guessed.

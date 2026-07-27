@@ -1,0 +1,13 @@
+generated: '2026-07-19'
+method: generated
+source: https://groupthink.com/docs/mcp_server/
+grounding: mcp/groupthink-mcp.yml
+skills:
+  - file: groupthink-run-a-live-meeting.md
+    name: Run a live meeting with the Groupthink bot
+    api: mcp/groupthink-mcp.yml
+    operations: [join_meeting, bot_status, get_transcript, send_chat, speak, save_notes, get_notes, leave_meeting]
+  - file: groupthink-prep-relationship-brief.md
+    name: Prepare a relationship brief before a meeting
+    api: mcp/groupthink-mcp.yml
+    operations: [get_upcoming_meetings, list_relationships, search_relationships, get_relationship, get_relationship_insights, get_past_meetings, upsert_relationship_note]

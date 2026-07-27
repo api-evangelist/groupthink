@@ -1,8 +1,16 @@
 aid: groupthink
 name: Groupthink
-description: 'Groupthink is a company surfaced as a portfolio company of version-one-ventures and added
-  to the API Evangelist network as a stub for enrichment. Sector: saas. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: >-
+  Groupthink is a note-taker and professional-relationship memory built by
+  Firstparty Labs, Inc. It sends a notetaker bot into Zoom, Google Meet, and
+  Microsoft Teams meetings, transcribes and summarizes them, then organizes what
+  it captures around the people involved rather than around the meetings —
+  building a living relationship record with pre-meeting briefs, structured
+  decisions and action items, and a daily intelligence brief of who needs
+  attention. Groupthink exposes a hosted, remote Model Context Protocol (MCP)
+  server at api.groupthink.com so Claude, Cursor, and other MCP-compatible AI
+  assistants can join live meetings, read transcripts, speak and chat in the
+  call, and query relationship intelligence using Bearer-token API tokens.
 url: https://raw.githubusercontent.com/api-evangelist/groupthink/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -10,15 +18,98 @@ x-backed-by:
 - version-one-ventures
 x-tier: stub
 x-tier-reason: portfolio-lead
+x-legal-name: Firstparty Labs, Inc.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
+image: https://groupthink.com/apple-touch-icon.png
 tags:
 - Company
-- Saas
-apis: []
+- SaaS
+- Meetings
+- Transcription
+- Note Taking
+- Relationship Intelligence
+- MCP
+- AI Assistant
+- Productivity
+- CRM
+apis:
+- name: Groupthink MCP & API
+  description: >-
+    Groupthink's hosted, remote Model Context Protocol (MCP) server and API,
+    served from api.groupthink.com. Authenticated with a Bearer API token minted
+    in the app, it lets an AI assistant join live meetings, stream transcripts,
+    speak and post chat in the call, save and retrieve notes, and query
+    relationship intelligence (relationships, insights, upcoming and past
+    meetings).
+  humanURL: https://groupthink.com/docs/mcp_server/
+  baseURL: https://api.groupthink.com/v1
+  properties:
+  - type: MCPServer
+    url: mcp/groupthink-mcp.yml
+  - type: Authentication
+    url: authentication/groupthink-authentication.yml
+  - type: Documentation
+    url: https://groupthink.com/docs/mcp_server/
+common:
+- type: DeveloperPortal
+  url: https://groupthink.com/docs/
+- type: Documentation
+  url: https://groupthink.com/docs/
+- type: MCPServer
+  url: mcp/groupthink-mcp.yml
+- type: Authentication
+  url: authentication/groupthink-authentication.yml
+- type: Idempotency
+  url: conventions/groupthink-conventions.yml
+- type: Conventions
+  url: conventions/groupthink-conventions.yml
+- type: ChangeLog
+  url: changelog/groupthink-changelog.yml
+- type: Lifecycle
+  url: lifecycle/groupthink-lifecycle.yml
+- type: Conformance
+  url: conformance/groupthink-conformance.yml
+- type: DomainSecurity
+  url: security/groupthink-domain-security.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Integrations
+  url: https://groupthink.com/features/integrations/
+- type: Pricing
+  url: https://groupthink.com/pricing/
+- type: SignUp
+  url: https://app.groupthink.com/signup/
+- type: TermsOfService
+  url: https://groupthink.com/terms/
+- type: PrivacyPolicy
+  url: https://groupthink.com/privacy/
+- type: Blog
+  url: https://groupthink.com/releases/
+- type: Support
+  url: mailto:support@groupthink.com
+- type: Download
+  url: https://groupthink.com/download/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

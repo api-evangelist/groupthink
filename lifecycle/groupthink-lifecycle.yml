@@ -1,0 +1,26 @@
+generated: '2026-07-19'
+method: searched
+source: https://groupthink.com/docs/mcp_server/
+versioning:
+  scheme: uri-path
+  current: v1
+  detail: API and MCP server served under /v1 on api.groupthink.com.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  detail: >-
+    No formal deprecation/sunset policy is published. Product retirements are
+    announced in the changelog (e.g. the Notion integration was retired in May
+    2026 for near-zero usage).
+sla:
+  url: null
+  uptime_target: null
+status_page:
+  url: null
+  detail: No public status page was found at status.groupthink.com or linked from the site.
+changelog: https://groupthink.com/changelog/
+deprecated_operations: []
+notes: >-
+  No OpenAPI spec is published, so deprecated operations cannot be derived. No
+  StatusPage or Deprecation policy pointer is emitted because neither is
+  published — recording their absence rather than fabricating them.
