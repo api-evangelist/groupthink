@@ -8,55 +8,55 @@ server:
   url: https://api.groupthink.com/v1/mcp-server
   authentication:
     type: bearer
-    description: >-
-      Bearer API token minted in the Groupthink app under Settings -> API
-      Tokens. Shown once at creation; can be revoked immediately. Passed as an
-      Authorization: Bearer <token> header (or via the mcp-remote bridge for
-      clients without native HTTP transport).
+    description: 'Bearer API token minted in the Groupthink app under Settings -> API Tokens. Shown once
+      at creation; can be revoked immediately. Passed as an Authorization: Bearer <token> header (or via
+      the mcp-remote bridge for clients without native HTTP transport).'
 clients:
-  - name: Claude Code
-    setup: >-
-      claude mcp add --transport http --scope user groupthink
-      https://api.groupthink.com/v1/mcp-server --header "Authorization: Bearer YOUR_TOKEN_HERE"
-  - name: Claude Desktop
-    setup: Configured via the mcp-remote npx bridge with the Bearer token in the config JSON.
-  - name: Cursor
-    setup: Configured via the mcp-remote npx bridge with the Bearer token in the config JSON.
+- name: Claude Code
+  setup: 'claude mcp add --transport http --scope user groupthink https://api.groupthink.com/v1/mcp-server
+    --header "Authorization: Bearer YOUR_TOKEN_HERE"'
+- name: Claude Desktop
+  setup: Configured via the mcp-remote npx bridge with the Bearer token in the config JSON.
+- name: Cursor
+  setup: Configured via the mcp-remote npx bridge with the Bearer token in the config JSON.
 tools:
-  # Live meeting participation
-  - name: join_meeting
-    description: Send the Groupthink bot to a Zoom, Google Meet, or Microsoft Teams meeting URL.
-  - name: get_transcript
-    description: Fetch new transcript lines since a per-user cursor.
-  - name: speak
-    description: Have the bot speak text aloud in the meeting (spend-capped).
-  - name: send_chat
-    description: Post a message to the meeting chat (max 2000 characters).
-  - name: bot_status
-    description: Return the current bot state and metadata.
-  - name: leave_meeting
-    description: Remove the bot from the meeting.
-  - name: save_notes
-    description: Persist meeting notes. Idempotent.
-  - name: get_notes
-    description: Retrieve saved meeting notes.
-  # Relationship & intelligence
-  - name: list_relationships
-    description: List relationships with contact-frequency status.
-  - name: get_relationship
-    description: Get relationship details by email or ID, with sourced personal details.
-  - name: search_relationships
-    description: Search relationships by name, email, tags, or details.
-  - name: get_relationship_insights
-    description: Return a relationship health summary and who needs outreach.
-  - name: get_upcoming_meetings
-    description: List upcoming calendar meetings with relationship context.
-  - name: get_past_meetings
-    description: List meetings from the last N days (default 7, max 30).
-  - name: upsert_relationship_note
-    description: Write a free-form user note onto a relationship.
-notes: >-
-  Verified verbatim against the published MCP documentation. The MCP endpoint
-  returns HTTP 405 on GET (POST-only JSON-RPC over HTTP, as expected). No
-  OpenAPI description of the underlying REST surface is published; the MCP tool
-  surface is the documented contract.
+- name: join_meeting
+  description: Send the Groupthink bot to a Zoom, Google Meet, or Microsoft Teams meeting URL.
+- name: get_transcript
+  description: Fetch new transcript lines since a per-user cursor.
+- name: speak
+  description: Have the bot speak text aloud in the meeting (spend-capped).
+- name: send_chat
+  description: Post a message to the meeting chat (max 2000 characters).
+- name: bot_status
+  description: Return the current bot state and metadata.
+- name: leave_meeting
+  description: Remove the bot from the meeting.
+- name: save_notes
+  description: Persist meeting notes. Idempotent.
+- name: get_notes
+  description: Retrieve saved meeting notes.
+- name: list_relationships
+  description: List relationships with contact-frequency status.
+- name: get_relationship
+  description: Get relationship details by email or ID, with sourced personal details.
+- name: search_relationships
+  description: Search relationships by name, email, tags, or details.
+- name: get_relationship_insights
+  description: Return a relationship health summary and who needs outreach.
+- name: get_upcoming_meetings
+  description: List upcoming calendar meetings with relationship context.
+- name: get_past_meetings
+  description: List meetings from the last N days (default 7, max 30).
+- name: upsert_relationship_note
+  description: Write a free-form user note onto a relationship.
+notes: Verified verbatim against the published MCP documentation. The MCP endpoint returns HTTP 405 on
+  GET (POST-only JSON-RPC over HTTP, as expected). No OpenAPI description of the underlying REST surface
+  is published; the MCP tool surface is the documented contract.
+deployment:
+  mode: remote
+  endpoint: https://api.groupthink.com/v1/mcp-server
+  verified: probed
+  probe: gated
+  checked: '2026-08-12'
+  source: catalog MCP census
