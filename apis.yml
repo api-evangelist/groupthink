@@ -88,6 +88,8 @@ apis:
   - type: Documentation
     url: https://groupthink.com/docs/mcp_server/
 common:
+- type: Website
+  url: https://www.groupthink.com/
 - type: DeveloperPortal
   url: https://groupthink.com/docs/
 - type: Documentation
