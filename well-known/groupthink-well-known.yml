@@ -1,25 +1,59 @@
-generated: '2026-07-19'
+generated: '2026-09-19'
 method: searched
 source: live probes of groupthink.com, app.groupthink.com, api.groupthink.com
 hosts:
-  - host: https://groupthink.com
-    documents:
-      - {path: /.well-known/security.txt, status: 404}
-      - {path: /.well-known/openid-configuration, status: 404}
-      - {path: /.well-known/oauth-authorization-server, status: 404}
-      - {path: /.well-known/api-catalog, status: 404}
-      - {path: /.well-known/ai-plugin.json, status: 404}
-      - {path: /llms.txt, status: 404}
+- host: https://groupthink.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+- host: https://api.groupthink.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    file: groupthink-api-oauth-protected-resource.json
+    bytes: 147
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: groupthink-api-oauth-authorization-server.json
+    bytes: 423
+  path_echo_control: passed
+- host: https://app.groupthink.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /llms.txt
+    status: 404
+notes: No /.well-known discovery documents, llms.txt, or ai-plugin.json are published on any host. Absence
+  recorded as valid data; no WellKnown/SecurityTxt scoring pointer is emitted because nothing was found.
+x-mcp-probe:
+  probed: '2026-09-19'
+  issue: roadmap#321, roadmap#337
+  documents:
   - host: https://api.groupthink.com
-    documents:
-      - {path: /.well-known/security.txt, status: 404}
-      - {path: /.well-known/openid-configuration, status: 404}
-      - {path: /.well-known/oauth-authorization-server, status: 404}
-  - host: https://app.groupthink.com
-    documents:
-      - {path: /.well-known/security.txt, status: 404}
-      - {path: /llms.txt, status: 404}
-notes: >-
-  No /.well-known discovery documents, llms.txt, or ai-plugin.json are published
-  on any host. Absence recorded as valid data; no WellKnown/SecurityTxt scoring
-  pointer is emitted because nothing was found.
+    path: /.well-known/oauth-protected-resource
+    file: groupthink-api-oauth-protected-resource.json
+  - host: https://api.groupthink.com
+    path: /.well-known/oauth-authorization-server
+    file: groupthink-api-oauth-authorization-server.json
+  validated_on: resource (RFC 9728) / issuer (RFC 8414, OIDC)
+  negative_control: one per host; a 2xx JSON object at an impossible path discards the host
+note: 'MCP-host OAuth discovery added 2026-09-19 (roadmap#321/#337): the harvest visits a provider''s
+  primary hosts, and RFC 9728 protected-resource metadata lives on the MCP host, so these documents existed
+  and were invisible to the scorer. Fetched live and validated on `resource`/`issuer`; one negative control
+  per host.'

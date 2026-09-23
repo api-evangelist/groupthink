@@ -1,0 +1,27 @@
+# Front Door AI Index — groupthink — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: groupthink
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.groupthink.com
+  final_host: groupthink.com
+  ownership: own
+  owner: groupthink
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 6
+  host_score: 6
+  density: 4.48
+  words: 1339
+  tiers:
+    agentic: 1
+    core: 2
+    model: 3
+  ambiguous: 0
+  top_terms:
+    Claude: 3
+    AI: 2
+    prompts: 1
