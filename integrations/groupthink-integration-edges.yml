@@ -1,0 +1,16 @@
+generated: '2026-10-12'
+method: none
+source:
+- https://zapier.com/apps/groupthink/integrations
+- https://n8n.io/integrations/groupthink/
+- https://composio.dev/toolkits/groupthink
+- https://monid.ai/tools/groupthink
+checked:
+- https://composio.dev/toolkits/groupthink
+- https://monid.ai/tools/groupthink
+- https://n8n.io/integrations/groupthink/
+- https://zapier.com/apps/groupthink/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
